@@ -30,6 +30,7 @@ export function InfoDialog() {
         description:
           'Support my open source work by sponsoring me or sending a donation. This donation and sponsorship page is open source and fully customisable.',
         hideDonateButton: true,
+        sourceUrl: 'https://github.com/Aerilym/simple-donate',
       }}
     />
   );
