@@ -1,33 +1,87 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
   "vcs": {
-    "enabled": true,
+    "enabled": false,
     "clientKind": "git",
-    "useIgnoreFile": true
+    "useIgnoreFile": false
   },
   "files": {
-    "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
+    "ignoreUnknown": false,
+    "includes": ["./**/*.ts", "./**/*.tsx"]
   },
   "formatter": {
     "enabled": true,
+    "useEditorconfig": true,
+    "formatWithErrors": false,
     "indentStyle": "space",
-    "indentWidth": 2
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 100,
+    "attributePosition": "auto",
+    "bracketSpacing": true
   },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
+      "correctness": {
+        "recommended": true,
+        "noUndeclaredDependencies": "off",
+        "useImportExtensions": "off"
+      },
+      "complexity": {
+        "recommended": true,
+        "noVoid": "off",
+        "useSimplifiedLogicExpression": "off",
+        "noExcessiveCognitiveComplexity": {
+          "level": "warn",
+          "options": {
+            "maxAllowedComplexity": 20
+          }
+        }
+      },
+      "a11y": {
+        "recommended": true
+      },
+      "performance": {
+        "recommended": true,
+        "noBarrelFile": "off",
+        "noReExportAll": "off"
+      },
+      "security": {
+        "recommended": true
+      },
       "suspicious": {
-        "noUnknownAtRules": "off"
+        "recommended": true,
+        "noReactSpecificProps": "off",
+        "noConsole": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "info",
+          "options": {
+            "functions": ["clsx", "cva", "cn"]
+          }
+        }
       }
-    },
-    "domains": {
-      "next": "recommended",
-      "react": "recommended"
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "es5",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "quoteStyle": "single",
+      "attributePosition": "auto",
+      "bracketSpacing": true
     }
   },
   "assist": {
+    "enabled": true,
     "actions": {
       "source": {
         "organizeImports": "on"
